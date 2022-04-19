@@ -25,7 +25,157 @@ blah, blah, blah, blah
 
    <head> 
       
-	   PUT YOUR OLD CODE IN HERE
+	  <title>Hello World</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
+
+
+<script>
+        var pregnancy_count = 0;
+
+        function pregnancyAdd(){
+            pregnancy_count = pregnancy_count + 1;
+        }
+
+	function pregnancyFinal(){ <!--Added this function to get the results--> 
+		pregnancy_count = pregnancy_count * 25; 
+	}
+	
+	function Resultspercentage(){
+		var resultText = document.getElementById("results");
+		var pregnancy_percent= (pregnancy_count)
+		resultText.innerHTML = "Probability you might be pregnant=" + pregnancy_percent;
+		
+	}
+	
+  </script>
+
+
+
+<style>	
+.body {
+     margin: 0em;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+</style>
+
+<body>
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Potential Pregnancy?</h1>
+</div>
+	
+<div id="content" class="w3-container">
+	<p>Are you feeling like you might be pregnant but you aren't sure. Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
+<div class="page" id="one"> <!--I added multiple pages with the various questions on them so there would be a place to go when pushing a button-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Have you missed your period?</p>    
+		<a href="#two" onclick="pregnancyAdd();"class="w3-btn w3-black"> Yes </a> <!--This is code for a Yes button that will also take the user to the next page-->
+		<a href="#two" "class="w3-btn w3-black"> No </a> <!--This is code for a No button that will also take the user to the next page-->
+    	</div>
+	
+</div>
+
+<div class="page" id="two"> 
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Are you experiencing tender or swollen breasts?</p>    
+		<a href="#three" onclick="pregnancyAdd();"class="w3-btn w3-black"> Yes </a> 
+		<a href="#three""class="w3-btn w3-black"> No </a>
+    	</div>
+	
+</div>
+	
+<div class="page" id="three"> 
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Are you experiencing nausea with or without vomiting?</p>    
+		<a href="#four" onclick="pregnancyAdd();"class="w3-btn w3-black"> No </a> 
+		<a href="#four" "class="w3-btn w3-black"> Yes </a>
+    	</div>
+	
+</div>
+
+<div class="page" id="four"> 
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+	<img src=”(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIpgYPvmNZ4zYpd51Ag9MtFPWXQFKQ708aVg&usqp=CAU)”>
+	
+	<div id="content" class="w3-container">
+		<p>Is you waist size expanding?</p>
+		<a href="#five" onclick="pregnancyAdd();"class="w3-btn w3-black"> Yes </a>
+		<a href="#five" "class="w3-btn w3-black"> No </a>
+    <a href="#five" onclick="pregnancyFinal();"class="w3-btn w3-black"> 
+			Continue to Final Step </a>
+	</div>
+</div>	
+	
+<div class="page" id="five"> <!--Adding a page for the results to be computed-->
+
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Results</h1>
+	</div>
+	
+    	<div id="results" class="w3-container"> 
+	<a href="#six" onclick="Resultspercentage();"class="w3-btn w3-black"> Compute Results </a>
+		
+    	</div>
+</div>
+	
+</div>
+		
+<div class="page" id="six"> <!--Adding a page for the results to be computed-->
+
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Results</h1>
+	</div>
+	
+    	<div id="results" class="w3-container"> 
+	<script>
+        document.write(results); 
+	</script>	
+    	</div>
+</div>
+
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+</footer>
 	   
    </body>
 </html>
