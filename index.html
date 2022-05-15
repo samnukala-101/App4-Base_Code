@@ -6,55 +6,51 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
  
 Authors in chronological order of contribution:
-Author 1
-Author 2
+Tim Riedel
+Sam Nukala
  
 Further Information:
 http://diystream.cns.utexas.edu/
-
 Research Educator:
 Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+This diagnostic app will diagnose whether or not an individual has schizophrenia after they answer a few questions about how they are feeling. 
  
 Known Issues:
-blah, blah, blah, blah
--->
+The symptoms that are present when it comes to mental health can be very arbitrary and changing person to person. Making a diagnosis off of a survey doesn't usually give a confirmative diagnosis for these types of conditions. 
 
    <head> 
-      
-	  <title>Hello World</title>  
+      <title>Hello World</title>  
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
 
-
+	
 <script>
-        var pregnancy_count = 0;
-
-        function pregnancyAdd(){
-            pregnancy_count = pregnancy_count + 1;
+        var count = 0;
+	//This code has set the variable "count" which will keep track of the users answers to questions
+	//if someone were to call a variable count then it would first present the value 0
+	//there will be a function "Add()" where the count value that is being stored will increases by one 
+	
+        function Add(){
+            count = count + 1;
         }
-
-	function pregnancyFinal(){ <!--Added this function to get the results--> 
-		pregnancy_count = pregnancy_count * 25; 
-	}
+	//Everytime this function is called for by an action "Add()" will add 1 to the count variable 
 	
-	function Resultspercentage(){
-		var resultText = document.getElementById("results");
-		var pregnancy_percent= (pregnancy_count)
-		resultText.innerHTML = "Probability you might be pregnant=" + pregnancy_percent;
-		
+	function percent(){
+	    diagnosis_percent = (schizo_count/4) * 100
+	    var result = document.getElementById("result")
+	    result.innerHTML = "The probability you have schizophrenia =" + diagnosis_Percent + "%"
 	}
+	//This percent function will calculate the percent of likelihood of the diagnosis
+	//The button on the last page will present the results of the questionnare and will show the content of what's in results
+</script>
+
 	
-  </script>
-
-
-
 <style>	
 .body {
      margin: 0em;
@@ -75,15 +71,22 @@ blah, blah, blah, blah
     left: 0vw;
     z-index: 1;
 }
+
+   img, object {
+   	max-height: 90%;
+   	max-width: 90%;
+}	
+
 </style>
 
+	
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Potential Pregnancy?</h1>
+	<h1>Schizophrenia Diagnostic</h1>
 </div>
 	
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might be pregnant but you aren't sure. Answer a few short questions to find out!</p>
+	<p>This diagnostic tool will help people realize if they have schizophrenia.</p>
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
@@ -91,91 +94,94 @@ blah, blah, blah, blah
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
-<div class="page" id="one"> <!--I added multiple pages with the various questions on them so there would be a place to go when pushing a button-->
+	<img src="data:image/jpeg;base64,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" alt="Schizophrenia">
+	
+	<!--
+	The contents of the paragraph above helps tell the user what the diagnostic app is being used for.
+	The image on the first page was added using (<img>) tag, the image is linked to my webpage 
+	-->
+	
+<div class="page" id="one">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 1</h1>
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Have you missed your period?</p>    
-		<a href="#two" onclick="pregnancyAdd();"class="w3-btn w3-black"> Yes </a> <!--This is code for a Yes button that will also take the user to the next page-->
-		<a href="#two" "class="w3-btn w3-black"> No </a> <!--This is code for a No button that will also take the user to the next page-->
+        	<p>Do you ever have experiences that are reffered to as hallucinations when you experience or see something that no one else can?</p>
+		<a href="#two" onclick="Add();" class="w3-btn w3-black">Yes</a>
+		<a href="#two" class="w3-btn w3-black">No</a>
     	</div>
-	
 </div>
+	<!--
+	If clicking the "Yes" or "No" button the app will move to the next page
+	The button will also run the function "Add()"
+	-->
 
-<div class="page" id="two"> 
+<div class="page" id="two">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
 	
-    	<div id="content" class="w3-container">
-        <p>Are you experiencing tender or swollen breasts?</p>    
-		<a href="#three" onclick="pregnancyAdd();"class="w3-btn w3-black"> Yes </a> 
-		<a href="#three""class="w3-btn w3-black"> No </a>
-    	</div>
-	
+	<div id="content" class="w3-container">
+		<p>Do you ever have disorganized thoughts or the tendency to ramble?</p>
+		<a href="#three" onclick="Add();" class="w3-btn w3-black">Yes</a>
+		<a href="#three" class="w3-btn w3-black">No</a>
+	</div>
 </div>
-	
-<div class="page" id="three"> 
+	<!--
+	If clicking the "Yes" or "No" button the app will move to the next page
+	The button will also run the function "Add()"
+	-->
+		
+<div class="page" id="three">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 3</h1>
 	</div>
 	
-    	<div id="content" class="w3-container">
-        <p>Are you experiencing nausea with or without vomiting?</p>    
-		<a href="#four" onclick="pregnancyAdd();"class="w3-btn w3-black"> No </a> 
-		<a href="#four" "class="w3-btn w3-black"> Yes </a>
-    	</div>
+	<div id="content" class="w3-container">
+		<p>Do you have trouble with memory at times?</p>
+		<a href="#four" onclick="Add();" class="w3-btn w3-black">Yes</a>
+		<a href="#four" class="w3-btn w3-black">No</a>
+	</div>	
+</div>	
+	<!--
+	If clicking the "Yes" or "No" button the app will move to the next page
+	The button will also run the function "Add()"
+	-->
 	
-</div>
-
-<div class="page" id="four"> 
+<div class="page" id="four">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 4</h1>
 	</div>
 	
-	<img src=”(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIpgYPvmNZ4zYpd51Ag9MtFPWXQFKQ708aVg&usqp=CAU)”>
-	
 	<div id="content" class="w3-container">
-		<p>Is you waist size expanding?</p>
-		<a href="#five" onclick="pregnancyAdd();"class="w3-btn w3-black"> Yes </a>
-		<a href="#five" "class="w3-btn w3-black"> No </a>
-    <a href="#five" onclick="pregnancyFinal();"class="w3-btn w3-black"> 
-			Continue to Final Step </a>
+		<p>Do you have trouble effectively communicating at time or are you answers ever unrelated to questions asked?</p>
+		<a href="#five" onclick="Add();" class="w3-btn w3-black">Yes</a>
+		<a href="#five" class="w3-btn w3-black">No</a>
 	</div>
 </div>	
+	<!--
+	If clicking the "Yes" or "No" button the app will move to the next page
+	The button will also run the function "Add()"
+	-->
 	
-<div class="page" id="five"> <!--Adding a page for the results to be computed-->
-
+<div class="page" id="five">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
 	</div>
 	
-    	<div id="results" class="w3-container"> 
-	<a href="#six" onclick="Resultspercentage();"class="w3-btn w3-black"> Compute Results </a>
-		
-    	</div>
-</div>
-	
-</div>
-		
-<div class="page" id="six"> <!--Adding a page for the results to be computed-->
-
-	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Results</h1>
+	<div id="content" class="w3-container">
+		<button class="w3-button w3-black" onclick="percent()">Calculate</button>
+		<p id="result"></p>
 	</div>
+</div>	
+	<!--	
+	The Calculate button will run the function "percent()" and the "result" will be displayed 
+	-->
 	
-    	<div id="results" class="w3-container"> 
-	<script>
-        document.write(results); 
-	</script>	
-    	</div>
-</div>
-
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
-	   
-   </body>
+
+</body>
 </html>
