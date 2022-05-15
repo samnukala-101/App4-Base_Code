@@ -44,7 +44,7 @@ The symptoms that are present when it comes to mental health can be very arbitra
 	
 	function percent(){
 	    diagnosis_percent = (count/4) * 100
-	    var result = document.getElementById("result")
+	    var result = document.getElementById("results")
 	    result.innerHTML = "The probability you have schizophrenia: " + diagnosis_percent + "%"
 	}
 	//This percent function will calculate the percent of likelihood of the diagnosis
@@ -172,7 +172,6 @@ The symptoms that are present when it comes to mental health can be very arbitra
 	</div>
 	
 	<div id="content" class="w3-container">
-		<button class="w3-button w3-black" onclick="percent()">Calculate</button>
 		<a href="#six" onclick="percent();" class="w3-btn w3-black">Calculate</a>
 	</div>
 </div>	
@@ -185,10 +184,10 @@ The symptoms that are present when it comes to mental health can be very arbitra
 		<h1>Results</h1>
 	</div>
 	
-	<div id="results" class="w3-container">
+	<div id="Results" class="w3-container">
 	<script>
 	document.write(result) <!--Added a command to display results-->
-		<script>	
+	<script>	
 	</div>
 </div>
 		
